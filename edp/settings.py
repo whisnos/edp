@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/2.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.0/ref/settings/
 """
-
+import datetime
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -40,12 +40,13 @@ INSTALLED_APPS = [
 	'django.contrib.messages',
 	'django.contrib.staticfiles',
 	'user.apps.UserConfig',
-	'member.apps.MemberConfig',
 	'product.apps.ProductConfig',
+	'trade.apps.TradeConfig',
 	'rest_framework',
 	'django_filters',
 	'xadmin',
 	'crispy_forms',
+	'DjangoUeditor',
 
 ]
 AUTH_USER_MODEL = 'user.UserProfile'
@@ -134,3 +135,21 @@ STATICFILES_DIRS = [
 # STATIC_ROOT = os.path.join(BASE_DIR,'static/')
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+MINA_APP = {
+	# 'appid': 'wxe623f8630586cfa5',#zym
+	'appid': 'wx8d5572d32be1ec04',  # wo
+	'appkey': '8f37b9aa03337dbd8b48194c979cf19b',
+	'mch_id': '1489970272',
+	'paykey': '7a298560072ac1c2045ecc7b085ca907',
+	'callback_url': '/api/order/callback'
+}
+
+# jwt相关的设置
+JWT_AUTH = {
+	'JWT_EXPIRATION_DELTA': datetime.timedelta(days=10),
+	# 'JWT_RESPONSE_PAYLOAD_HANDLER': 'utils.permissions.jwt_response_payload_handler'
+}
+# REST_FRAMEWORK = {
+# 	'DEFAULT_AUTHENTICATION_CLASSES': []
+# }
