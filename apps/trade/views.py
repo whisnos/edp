@@ -47,7 +47,6 @@ class ShopingCartViewSet(viewsets.ModelViewSet):
 	queryset = ShopingCart.objects.all()
 
 	def get_queryset(self):
-		print('self.request.user',self.request.user)
 		return self.queryset.filter(user=self.request.user)
 
 	# serializer_class = ShopingCartSerializer

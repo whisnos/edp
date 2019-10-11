@@ -6,7 +6,7 @@ from trade.models import ShopingCart
 
 
 class ShopingCartXadmin(object):
-	list_display = ['member', 'product', 'nums', 'add_time']
+	list_display = ['user', 'product', 'nums', 'add_time']
 
 
 xadmin.site.register(ShopingCart, ShopingCartXadmin)
